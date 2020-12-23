@@ -19,6 +19,23 @@ Seq1$Sequence_Length
 
 
 # okreslanie miejsc przylaczanie startewor
+# Zakres binding regions
+B_region <- assign_binding_regions(Seq1, fw = c(20,45), rev= c(20,45))
+
+frs <- 20
+fre <- 45
+rvs <- 55
+rve <- 80
+# albo
+frs <- 20
+fre <- 45
+product_min <- 50
+product_max <- 300
+rvs <- fre + product_min
+rve <- fre + product_max + 25
+
+B_region <- assign_binding_regions(Seq1, fw = c(frs,fre), rev= c(Seq1$Sequence_Length - rve,Seq1$Sequence_Length - rvs))
+
 Bin_region <- assign_binding_regions(Seq1, fw =c(60,90), rev= c(15,100))
 Bin_region
 
